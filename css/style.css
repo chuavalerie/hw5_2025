@@ -1,0 +1,170 @@
+/* Define keyframes */
+
+@keyframes logoAnimation {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Apply animation to logo */
+
+#logo {
+    animation-name: logoAnimation;
+    animation-duration: 5s;
+}
+
+/* Enable option to disable animation */
+
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Style web font and include a backup font.
+Style background image and include a backup background color. */
+
+body{
+    font-family: "Poppins",serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Style headers */
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-bottom: 0px;
+}
+
+/* Style navigation links to use flex */
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style links so that they have the same color even after they have been visited. */
+
+header .nav_links .nav_item a:visited, header .nav_links .nav_item a:focus {
+    color: #0000EE;
+}
+
+/* Style header elements that are direct children of a card class.
+Style cards to ensure border radius matches header elements.
+Set an initial "size" for the cards. */
+
+.card > header{
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.card{
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+
+/* Style pricing class with flex to center the cards both horizontally and vertically. */
+
+.pricing{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Style images in gallery */
+
+.gallery img{
+    border:10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Style gallery with flex, ensure responsive wrapping */
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Style for when screen-size is greater than 900px */
+
+@media screen and (min-width: 900px) {
+    /* Style navigation bar to ensure logo and navigation links are in a row, positioned to opposite ends of the screen.*/
+
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links{
+        flex-direction: row;
+    }
+
+    /* Style pricing cards width and height, center card vertically and center content horizontally*/
+
+    .card{
+        flex-basis:275px;
+        height: fit-content;
+    }
+
+    .pricing{
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Style header that is not inside main so that it remains visible at the top of the screen even on scroll.
+    Adjust header height to ensure that content overlapped can be seen */
+
+    body > header{
+        position:sticky;
+    }
+}
+
+@media print {
+    /* Change font to Arial with a backup value of  Helvetica */
+    /* Remove background image */
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /* Style navigation links in a row */
+    .nav_links{
+        flex-direction: row;
+    }
+
+    /* Style pricing cards so that they appear in a row */
+    .pricing{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .card{
+        flex-basis: 325px;
+        border: 2px solid #45ADDD;
+    }
+
+    /* Hide gallery content */
+    #gallery, .gallery {
+        display: none;
+    }
+}
