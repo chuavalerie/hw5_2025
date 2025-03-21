@@ -44,6 +44,11 @@ header{
     margin-bottom: 0px;
 }
 
+/* Style h1 */
+h1{
+    margin-top: 20px;
+}
+
 /* Style navigation links to use flex */
 
 .nav_links{
@@ -72,8 +77,8 @@ Set an initial "size" for the cards. */
 
 .card{
     border-radius: 50px 50px 0px 0px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     flex-basis: 450px;
 }
 
@@ -144,18 +149,23 @@ Set an initial "size" for the cards. */
     }
 
     /* Style navigation links in a row */
+    nav{
+        width: 100%;
+
+    }
+
     .nav_links{
         flex-direction: row;
+        justify-content: space-around;
     }
 
     /* Style pricing cards so that they appear in a row */
+    /* Add margin below pricing card, above footer */
     .pricing{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-flow: row nowrap;
         align-items: flex-end;
-        margin-bottom: 50px;
-        width: 100%;
+        margin-bottom: 200px;
     }
 
     .card{
@@ -167,4 +177,9 @@ Set an initial "size" for the cards. */
     #gallery, .gallery {
         display: none;
     }
+
+    /* Add emoji for first description */
+    .card li:nth-child(2)::after {
+        content: "👍";
+      }
 }
